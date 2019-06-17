@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<h1>Tic Tac Toe</h1>
+<h2><p id="hien"></p></h2>
+
+<script>
+    let board = [];
+    let data = "";
+    for (let i = 0; i < 10; i++) {
+        board[i] = new Array("🎁", "🎁", "🎁", "🎁", "🎁", "🎁", "🎁", "🎁", "🎁", "🎁");
+    }
+    for (let i = 0; i < 10; i++) {
+        data += "<br/>";
+        for (let j = 0; j < 10; j++) {
+            data += board[i][j] + "&nbsp;";
+
+        }
+    }
+    document.getElementById("hien").innerHTML = data;
+
+    function taoX() {
+        let positionX = parseInt(prompt("X: "));
+        let positionY = parseInt(prompt("Y: "));
+        data = "";
+        board[positionX][positionY] = "❌";
+        for (let i = 0; i < 10; i++) {
+            data += "<br/>";
+            for (let j = 0; j < 10; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;";
+                if (board[i][j] === "❌" && board[i][j - 1] === "❌" && board[i][j + 1] === "❌") {
+                    alert("X thắng")
+                } else if (board[i][j] === "❌" && board[i - 1][j] === "❌" && board[i + 1][j] === "❌") {
+                    alert("X thắng")
+                } else if (board[i][j] === "❌" && board[i - 1][j - 1] === "❌" && board[i + 1][j + 1] === "❌") {
+                    alert("X thắng")
+                } else if (board[i][j] === "❌" && board[i - 1][j + 1] === "❌" && board[i + 1][j - 1] === "❌") {
+                    alert("X thắng")
+                }
+            }
+        }
+        document.getElementById("hien").innerHTML = data;
+    }
+    function taoO() {
+        let positionX = parseInt(prompt("X: "));
+        let positionY = parseInt(prompt("Y: "));
+        data = "";
+        board[positionX][positionY] = "⭕";
+        for (let i = 0; i < 10; i++) {
+            data += "<br/>";
+            for (let j = 0; j < 10; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;";
+                if (board[i][j] === "⭕" && board[i][j - 1] === "⭕" && board[i][j + 1] === "⭕") {
+                    alert("O thắng")
+                } else if (board[i][j] === "⭕" && board[i - 1][j] === "⭕" && board[i + 1][j] === "⭕") {
+                    alert("O thắng")
+                } else if (board[i][j] === "⭕" && board[i - 1][j - 1] === "⭕" && board[i + 1][j + 1] === "⭕") {
+                    alert("O thắng")
+                } else if (board[i][j] === "⭕" && board[i - 1][j + 1] === "⭕" && board[i + 1][j - 1] === "⭕") {
+                    alert("O thắng")
+                }
+            }
+        }
+        document.getElementById("hien").innerHTML = data;
+    }
+</script>
+<input type="button" onclick="taoX()" value="X"/>
+<input type="button" onclick="taoO()" value="O"/>
+</body>
+</html>
